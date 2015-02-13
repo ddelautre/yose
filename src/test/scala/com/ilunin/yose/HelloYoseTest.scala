@@ -4,7 +4,7 @@ import com.jayway.restassured.RestAssured.given
 import org.scalatest.{Matchers, FlatSpec}
 
 class HelloYoseTest extends FlatSpec with Matchers {
-  Yose.main(Array.empty)
+  Yose.main(Array("8080"))
 
   "The home page" should "return 200" in {
     val response = given().get("http://localhost:8080/")

@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/yose
+web: target/universal/stage/bin/yose $PORT

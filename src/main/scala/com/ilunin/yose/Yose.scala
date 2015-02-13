@@ -9,7 +9,7 @@ object Yose extends App with SimpleRoutingApp {
   implicit val system = ActorSystem("homerun")
   implicit val executionContext = system.dispatcher
 
-  startServer(interface = "0.0.0.0", port = 8080) {
+  startServer(interface = "0.0.0.0", port = args.head.toInt) {
     get {
       complete(HttpResponse(entity = "<html><body>Hello Yose</body></html>"))
     }
