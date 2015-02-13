@@ -1,18 +1,15 @@
 package com.ilunin.yose
 
-import akka.actor.ActorSystem
+import com.ilunin.spray.gun.{Get, Server}
 import spray.http.HttpResponse
-import spray.routing.SimpleRoutingApp
 
-object Yose extends App with SimpleRoutingApp {
+object Yose extends App {
 
-  implicit val system = ActorSystem("homerun")
-  implicit val executionContext = system.dispatcher
-
-  startServer(interface = "0.0.0.0", port = args.head.toInt) {
-    get {
-      complete(HttpResponse(entity = "<html><body>Hello Yose!</body></html>"))
-    }
+  val server = Server.syncServer(port = args.head.toInt) {
+    case Get(_, _) => HttpResponse(entity = "<html><body>Hello Yose!</body></html>")
   }
+
+  server.start()
+
 
 }
