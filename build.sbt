@@ -1,3 +1,6 @@
+lazy val yose = (project in file("."))
+  .enablePlugins(JavaAppPackaging)
+
 name := "yose"
 
 version := "1.0"
@@ -11,3 +14,4 @@ libraryDependencies ++= Seq(
   "com.jayway.restassured" % "rest-assured" % "2.4.0" % "test",
   "com.typesafe.akka" %% "akka-actor" % "2.3.7"
 )
+

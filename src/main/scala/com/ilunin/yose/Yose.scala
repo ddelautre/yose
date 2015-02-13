@@ -11,7 +11,7 @@ object Yose extends App with SimpleRoutingApp {
 
   startServer(interface = "0.0.0.0", port = 8080) {
     get {
-      complete(HttpResponse())
+      complete(HttpResponse(entity = "<html><body>Hello Yose</body></html>"))
     }
   }
 
