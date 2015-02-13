@@ -1,3 +1,8 @@
 language: scala
 scala:
-   - 2.11.5
+- 2.11.5
+deploy:
+  provider: heroku
+  app: yose-ddelautre
+  api_key:
+    secure: Neop3MwS5KoUAA059oB65H6ce2hKwWwqeVEd7pdMqxa+1pSnE3cn9qyIW6hvk3D85f2zi1xsxbtzo1FPJB1ClPpwohKDQIxOLr10gEZH4gf0irtqNqimoL10kJWp56n3SQQ1/T2o4h6lhho1rsPjUhLK7cnd1BtElCJ6bgpGb3Q=
