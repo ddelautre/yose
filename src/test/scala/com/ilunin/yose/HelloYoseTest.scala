@@ -1,10 +1,17 @@
 package com.ilunin.yose
 
 import com.jayway.restassured.RestAssured.given
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{BeforeAndAfterAll, Matchers, FlatSpec}
 
-class HelloYoseTest extends FlatSpec with Matchers {
-  Yose.main(Array("8080"))
+class HelloYoseTest extends FlatSpec with Matchers with BeforeAndAfterAll {
+
+  override def beforeAll(): Unit = {
+    Yose.start(8080)
+  }
+
+  override def afterAll(): Unit = {
+    Yose.stop()
+  }
 
   "The home page" should "return 200" in {
     val response = given().get("http://localhost:8080/")

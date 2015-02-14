@@ -5,11 +5,18 @@ import spray.http.HttpResponse
 
 object Yose extends App {
 
-  val server = Server.syncServer(port = args.head.toInt) {
-    case Get(_, _) => HttpResponse(entity = "<html><body>Hello Yose!</body></html>")
+  private var server: Server = _
+
+  def start(port: Int): Unit = {
+    server = Server.syncServer(port = port) {
+      case Get(_, _) => HttpResponse(entity = "<html><body>Hello Yose!</body></html>")
+    }
+
+    server.start()
   }
 
-  server.start()
+  def stop(): Unit = server.stop()
 
+  start(args.head.toInt)
 
 }
